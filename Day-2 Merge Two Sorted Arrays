@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+
+vector<int> ninjaAndSortedArrays(vector<int>& arr1, vector<int>& arr2, int m, int n) {
+	
+	vector<int>res;
+	int i=0,j=0;
+	// int n=arr1.size();
+	// int m=arr2.size();
+	
+	while(i<m || j<n)
+	{
+		if(arr1[i]<arr2[j] && i<m&&j<n)
+		{
+			res.push_back(arr1[i]);
+			i++;
+		}
+
+		else if(arr2[j]<=arr1[i] && i<m&&j<n)
+		{
+			res.push_back(arr2[j]);
+			j++;
+		}
+		else if(i<m && j>=n)
+		{
+			res.push_back(arr1[i]);
+			i++;
+		}
+		else
+		{
+			res.push_back(arr2[j]);
+			j++;
+		}
+
+	}
+
+	return res;
+
+
+
+}

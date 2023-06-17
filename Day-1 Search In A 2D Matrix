@@ -1,0 +1,27 @@
+#include<bits/stdtr1c++.h>
+bool searchMatrix(vector<vector<int>>& mat, int target) {
+        int n=mat.size();
+        int m=mat[0].size();
+        for(int i=0;i<n;i++)
+        {
+            if(mat[i][0]<=target && target<=mat[i][m-1])
+            {
+                int s=0,e=m-1;
+                int mid;
+                while(s<=e)
+                {
+                    mid=(s+e)/2;
+                    if(target==mat[i][mid])
+                    {
+                        return true;
+                    }
+                    else if(target>mat[i][mid]) 
+                        s=mid+1;
+                    else 
+                        e=mid-1;
+                }
+            }
+        }
+
+        return false;
+}

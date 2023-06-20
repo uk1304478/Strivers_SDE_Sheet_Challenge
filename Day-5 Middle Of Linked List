@@ -1,0 +1,54 @@
+/*
+Following is the class structure of the Node class:
+
+class Node
+{
+public:
+    int data;
+    Node *next;
+    Node()
+    {
+        this->data = 0;
+        next = NULL;
+    }
+    Node(int data)
+    {
+        this->data = data; 
+        this->next = NULL;
+    }
+    Node(int data, Node* next)
+    {
+        this->data = data;
+        this->next = next;
+    }
+};
+*/
+
+Node *findMiddle(Node *head) {
+    int n=0,mid;
+    Node* t=head;
+    while(t!=NULL)
+    {
+        n++;
+        t=t->next;
+    }
+    if(n%2!=0)
+    {
+        mid=(n+1)/2;
+    }
+    else{
+        mid=n/2 +1;
+    }
+
+    int c=1;
+    while(head!=NULL)
+    {
+        if(c==mid)
+        {
+            return head;
+        }
+        c++;
+        head=head->next;
+    }
+}
+
